@@ -5,18 +5,11 @@
 
   tasks:
     - name: Ensure Apache is installed
-      apt:
-        name: apache2
-        state: present
-      when: ansible_os_family == "Debian"
-
-    - name: Ensure Apache is installed
       yum:
         name: httpd
         state: present
-      when: ansible_os_family == "RedHa"
 
     - name: Ensure Apache is running
       service:
-        name: "{{ ansible_os_family == 'Debian' | ternary('apache2', 'httpd') }}"
+        name: httpd
         state: started
