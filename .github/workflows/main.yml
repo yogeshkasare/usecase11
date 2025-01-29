@@ -30,8 +30,8 @@ jobs:
       - name: Run Ansible Playbook
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbook: deploy.yml
-          inventory: inventory.ini
+           playbook: deploy.yml
+           inventory: .ansible_inventory
         env:
           ANSIBLE_HOST_KEY_CHECKING: 'false'
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
