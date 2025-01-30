@@ -1,15 +1,15 @@
 ---
-- name: Install and start Apache
+- name: Install and start Nginx
   hosts: webservers
   become: yes
 
   tasks:
-    - name: Ensure Apache is installed
+    - name: Ensure Nginx is installed
       package:
         name: nginx
-        state: present
+        state: latest
 
-    - name: Ensure Apache is running
+    - name: Ensure Nginx is running
       service:
         name: nginx
         state: started
