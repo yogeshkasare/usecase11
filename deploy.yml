@@ -4,8 +4,13 @@
   become: yes
 
   tasks:
+
+    - name: Add epel-release repo
+      yum:
+         name: epel-release
+         state: present
     - name: Ensure Nginx is installed
-      package:
+      yum:
         name: nginx
         state: latest
 
