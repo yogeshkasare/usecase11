@@ -5,14 +5,15 @@
 
   tasks:
 
-    - name: Add epel-release repo
-      yum:
-         name: epel-release
-         state: present
+    - name: stopping httpd
+      service: 
+         name: httpd 
+         state: stopped
+         enabled: no 
     - name: Ensure Nginx is installed
       yum:
         name: nginx
-        state: latest
+        state: present
 
     - name: Ensure Nginx is running
       service:
